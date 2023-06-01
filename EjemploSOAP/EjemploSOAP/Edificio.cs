@@ -8,10 +8,19 @@ namespace EjemploSOAP
 {
     internal class Edificio
     {
+       
+        
         public List<Ascensor> ascensores;
         public Edificio()
         {
-            ascensores = new List<Ascensor>();  
+           
+            ascensores = new List<Ascensor>();
+            Ascensor ascensor1 = new Ascensor() { Codigo = 1, Ocupado = false, PisoActual = 0 };
+            Ascensor ascensor2 = new Ascensor() { Codigo = 2, Ocupado = false, PisoActual = 0 };
+            Ascensor ascensor3 = new Ascensor() { Codigo = 3, Ocupado = false, PisoActual = 0 };
+            ascensores.Add(ascensor1);
+            ascensores.Add(ascensor2);
+            ascensores.Add(ascensor3);
         }
         
         public bool EstadoAscensor(int codigo)
@@ -32,13 +41,24 @@ namespace EjemploSOAP
 
         public int SolicitarAscensor(int nroPiso, int codigo)
         {
+            int pisoInicial = 0;
             Ascensor ascensor = ascensores.First(x => x.Codigo == codigo);
             if (!ascensor.Ocupado)
             {
                 ascensor.Ocupado = true;
-                int pisoInicial = ascensor.PisoActual;
+                pisoInicial = ascensor.PisoActual;
             }
-            return ;
+            return pisoInicial;
+        }
+
+        public string  DesocuparAscensor(int codigo)
+        {
+            Ascensor ascensor = ascensores.First(x => x.Codigo == codigo);
+            if (ascensor.Ocupado)
+            {
+                ascensor.Ocupado = false;
+            }
+            return "Ascensor desocupado";
         }
     }
 }
