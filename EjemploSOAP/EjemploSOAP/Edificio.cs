@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjemploSOAP
 {
-    internal class Edificio
+    public class Edificio
     {
        
         

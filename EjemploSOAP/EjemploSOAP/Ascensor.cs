@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjemploSOAP
 {
-    internal class Ascensor
+    public class Ascensor
     {
         public int Codigo { get; set; }
         public int PisoActual { get; set; }
