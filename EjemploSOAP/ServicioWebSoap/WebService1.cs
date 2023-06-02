@@ -20,20 +20,42 @@ namespace ServicioWebSoap
         Edificio instanciaEdificio = new Edificio();
 
         [WebMethod]
-       public string EstadoAscensor(int codigo)
+        public string EstadoAscensor(int codigo)
         {
-           
             string estado;
-          bool ocupado=  instanciaEdificio.EstadoAscensor(codigo);
+            bool ocupado = instanciaEdificio.EstadoAscensor(codigo);
             if (ocupado)
             {
-                estado = "esta ocupado";
+                estado = "El ascensor esta ocupado";
             }
             else
             {
-                estado = "esta desocupado";
+                estado = "El ascensor esta desocupado";
             }
             return estado;
         }
+
+        [WebMethod]
+        public string SolicitarAscensor(int codigo, int nroPiso)
+        {
+            int pisoInicial = instanciaEdificio.SolicitarAscensor(nroPiso, codigo);
+            string pisoAscensor = $"El piso inicial del ascensor es el piso nro. {pisoInicial}";
+            return pisoAscensor;
+        }
+        [WebMethod]
+
+        
     }
 }
+
+
+    
+
+        
+      
+    
+        
+    
+
+   
+
